@@ -35,7 +35,7 @@ def client(host, port, bytecount):
     sock.connect((host, port))
 
     sent = 0
-    recieved = 0
+    received = 0
     while sent < bytecount:
         sock.sendall(message)
         sent += len(message)

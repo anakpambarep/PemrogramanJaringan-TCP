@@ -41,7 +41,7 @@ def client(host, port, bytecount):
         print('\r %d bytes sent' % (sent,), end=' ')
         sys.stdout.flush()
 
-    #modifikasi program
+    #modifikasi code program
         data = sock.recv(42)
         if not received:
             print('The first data received says', repr(data))
@@ -83,4 +83,3 @@ if __name__ == '__main__':
         client(args.host, args.p, args.bytecount)
     else:
         server(args.host, args.p)
-        

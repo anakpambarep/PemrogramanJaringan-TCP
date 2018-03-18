@@ -41,6 +41,15 @@ def client(host, port, bytecount):
         print('\r %d bytes sent' % (sent,), end=' ')
         sys.stdout.flush()
 
+    #modifikasi program
+        data = sock.recv(42)
+        if not received:
+            print('The first data received says', repr(data))
+        if not data :
+            break
+        received += len(data)
+        print('\r %d bytes received' % (received,), end=' ')
+
     print()
     sock.shutdown(socket.SHUT_WR)
 

@@ -35,6 +35,7 @@ def client(host, port, bytecount):
     sock.connect((host, port))
 
     sent = 0
+    recieved = 0
     while sent < bytecount:
         sock.sendall(message)
         sent += len(message)
@@ -49,24 +50,10 @@ def client(host, port, bytecount):
             break
         received += len(data)
         print('\r %d bytes received' % (received,), end=' ')
-
     print()
     sock.shutdown(socket.SHUT_WR)
-
-    print('Receiving all the data the server sends back')
-
-    received = 0
-    while True:
-        data = sock.recv(42)
-        if not received:
-            print(' The first data received says', repr(data))
-        if not data:
-            break
-        received += len(data)
-        print('\r %d bytes received' % (received,), end=' ')
-
-        print()
-        sock.close()
+    print()
+    sock.close()
         
 if __name__ == '__main__':
     roles = ('client', 'server')
